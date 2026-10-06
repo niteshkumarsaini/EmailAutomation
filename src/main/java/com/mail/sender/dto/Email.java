@@ -10,7 +10,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Email {
+
     private String receiverEmail;
     private String companyName;
-
+    private boolean simpleEmail;
+    private String resumeType;
 }

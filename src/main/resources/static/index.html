@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mail Automation | Recruiter Outreach</title>
@@ -23,14 +25,11 @@
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
             --secondary: #4f46e5;
-
             --background: #f4f7fb;
             --card: #ffffff;
-
             --text: #111827;
             --text-secondary: #374151;
             --muted: #6b7280;
-
             --border: #e5e7eb;
 
             --success: #15803d;
@@ -64,18 +63,21 @@
                     rgba(37, 99, 235, 0.12),
                     transparent 35%
                 ),
+
                 radial-gradient(
                     circle at bottom right,
                     rgba(99, 102, 241, 0.10),
                     transparent 35%
                 ),
+
                 var(--background);
 
             color: var(--text);
         }
 
         button,
-        input {
+        input,
+        select {
             font-family: inherit;
         }
 
@@ -115,7 +117,6 @@
 
         .brand {
             text-align: center;
-
             margin-bottom: 32px;
         }
 
@@ -149,7 +150,6 @@
         .brand h1 {
             font-size: 25px;
             font-weight: 700;
-
             letter-spacing: -0.5px;
 
             margin-bottom: 8px;
@@ -157,9 +157,7 @@
 
         .brand p {
             color: var(--muted);
-
             font-size: 14px;
-
             line-height: 1.6;
         }
 
@@ -202,7 +200,8 @@
             pointer-events: none;
         }
 
-        .form-input {
+        .form-input,
+        .form-select {
             width: 100%;
             height: 50px;
 
@@ -225,7 +224,8 @@
                 box-shadow 0.2s ease;
         }
 
-        .form-input:focus {
+        .form-input:focus,
+        .form-select:focus {
             border-color: var(--primary);
 
             box-shadow:
@@ -248,7 +248,6 @@
             margin-top: 6px;
 
             border: none;
-
             border-radius: 11px;
 
             background:
@@ -284,11 +283,8 @@
 
         .login-button:disabled {
             cursor: not-allowed;
-
             opacity: 0.65;
-
             transform: none;
-
             box-shadow: none;
         }
 
@@ -334,7 +330,6 @@
 
         .app {
             display: none;
-
             min-height: 100vh;
         }
 
@@ -369,9 +364,7 @@
 
         .nav-brand {
             display: flex;
-
             align-items: center;
-
             gap: 12px;
         }
 
@@ -380,7 +373,6 @@
             height: 40px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
@@ -400,7 +392,6 @@
 
         .nav-brand-text h2 {
             font-size: 16px;
-
             font-weight: 700;
         }
 
@@ -439,7 +430,6 @@
 
         .logout-button:hover {
             background: #f9fafb;
-
             border-color: #d1d5db;
         }
 
@@ -580,6 +570,113 @@
 
 
         /* =========================================================
+           CHECKBOX
+        ========================================================= */
+
+        .simple-mail-option {
+            margin-top: 4px;
+
+            padding: 15px 16px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 11px;
+
+            background: #fafafa;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .simple-mail-option:has(input:checked) {
+            border-color: #bfdbfe;
+            background: #eff6ff;
+        }
+
+        .checkbox-row {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 11px;
+
+            cursor: pointer;
+        }
+
+        .checkbox-row input {
+            width: 17px;
+            height: 17px;
+
+            margin-top: 1px;
+
+            accent-color: var(--primary);
+
+            cursor: pointer;
+
+            flex-shrink: 0;
+        }
+
+        .checkbox-content strong {
+            display: block;
+
+            font-size: 13px;
+
+            color: var(--text-secondary);
+
+            margin-bottom: 4px;
+        }
+
+        .checkbox-content span {
+            display: block;
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           RESUME SELECT
+        ========================================================= */
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper .input-icon {
+            z-index: 2;
+        }
+
+        .form-select {
+            appearance: none;
+
+            -webkit-appearance: none;
+
+            cursor: pointer;
+
+            padding-right: 40px;
+        }
+
+        .select-arrow {
+            position: absolute;
+
+            right: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #9ca3af;
+
+            pointer-events: none;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
            SEND SECTION
         ========================================================= */
 
@@ -614,6 +711,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 10px;
@@ -717,11 +815,9 @@
         }
 
         @keyframes spin {
-
             to {
                 transform: rotate(360deg);
             }
-
         }
 
 
@@ -867,7 +963,6 @@
             .brand h1 {
                 font-size: 22px;
             }
-
         }
 
     </style>
@@ -882,10 +977,7 @@
          LOGIN SCREEN
     ========================================================== -->
 
-    <section
-        id="loginScreen"
-        class="login-screen"
-    >
+    <section id="loginScreen" class="login-screen">
 
         <div class="login-card">
 
@@ -908,8 +1000,6 @@
 
 
             <form id="loginForm">
-
-                <!-- USERNAME -->
 
                 <div class="form-group">
 
@@ -940,8 +1030,6 @@
                 </div>
 
 
-                <!-- PASSWORD -->
-
                 <div class="form-group">
 
                     <label
@@ -971,8 +1059,6 @@
                 </div>
 
 
-                <!-- LOGIN BUTTON -->
-
                 <button
                     type="submit"
                     id="loginButton"
@@ -981,8 +1067,6 @@
                     Sign In
                 </button>
 
-
-                <!-- LOGIN ERROR -->
 
                 <div
                     id="loginError"
@@ -1007,15 +1091,10 @@
          MAIN APPLICATION
     ========================================================== -->
 
-    <section
-        id="app"
-        class="app"
-    >
+    <section id="app" class="app">
 
 
-        <!-- =====================================================
-             NAVBAR
-        ====================================================== -->
+        <!-- NAVBAR -->
 
         <nav class="navbar">
 
@@ -1051,9 +1130,7 @@
 
 
 
-        <!-- =====================================================
-             MAIN CONTENT
-        ====================================================== -->
+        <!-- MAIN CONTENT -->
 
         <main class="main-container">
 
@@ -1076,16 +1153,14 @@
 
                 <p>
                     Send a professional job inquiry directly to
-                    recruiters with your resume attached.
+                    recruiters with your selected resume attached.
                 </p>
 
             </div>
 
 
 
-            <!-- =================================================
-                 EMAIL CARD
-            ================================================== -->
+            <!-- EMAIL CARD -->
 
             <div class="email-card">
 
@@ -1096,8 +1171,8 @@
                     </h2>
 
                     <p>
-                        Enter the recruiter details below.
-                        Company name is optional.
+                        Enter the recruiter details and choose
+                        your preferred email and resume options.
                     </p>
 
                 </div>
@@ -1146,7 +1221,7 @@
 
                         <!-- COMPANY NAME -->
 
-                        <div class="form-group full-width">
+                        <div class="form-group">
 
                             <label
                                 for="companyName"
@@ -1178,8 +1253,103 @@
                             </div>
 
                             <div class="field-hint">
-                                If provided, the email will be
-                                personalized for the company.
+                                Used for personalization when provided.
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- RESUME -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="resumeType"
+                                class="form-label"
+                            >
+                                Select Resume
+                            </label>
+
+                            <div class="select-wrapper">
+
+                                <span class="input-icon">
+                                    📄
+                                </span>
+
+                                <select
+                                    id="resumeType"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option
+                                        value="FULL_STACK"
+                                    >
+                                        Full Stack Developer
+                                    </option>
+
+                                    <option
+                                        value="BACKEND"
+                                        selected
+                                    >
+                                        Backend Developer
+                                    </option>
+
+                                    <option
+                                        value="BACKEND_LONG"
+                                    >
+                                        Backend Developer (Long)
+                                    </option>
+
+                                </select>
+
+                                <span class="select-arrow">
+                                    ▼
+                                </span>
+
+                            </div>
+
+                            <div class="field-hint">
+                                Select the resume you want to attach.
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- SIMPLE EMAIL CHECKBOX -->
+
+                        <div class="form-group full-width">
+
+                            <div class="simple-mail-option">
+
+                                <label
+                                    class="checkbox-row"
+                                    for="simpleEmail"
+                                >
+
+                                    <input
+                                        type="checkbox"
+                                        id="simpleEmail"
+                                    >
+
+                                    <div class="checkbox-content">
+
+                                        <strong>
+                                            Send Simple Email
+                                        </strong>
+
+                                        <span>
+                                            Sends a short plain recruiter
+                                            email without the detailed HTML
+                                            formatting and styling.
+                                        </span>
+
+                                    </div>
+
+                                </label>
+
                             </div>
 
                         </div>
@@ -1203,12 +1373,12 @@
 
                             <div class="attachment-text">
 
-                                <strong>
-                                    Nitesh_Kumar_Resume.pdf
+                                <strong id="selectedResumeText">
+                                    Backend Developer
                                 </strong>
 
                                 <span>
-                                    Automatically attached
+                                    Resume automatically attached
                                 </span>
 
                             </div>
@@ -1249,12 +1419,9 @@
 
 
 
-            <!-- =================================================
-                 INFORMATION CARDS
-            ================================================== -->
+            <!-- INFORMATION CARDS -->
 
             <div class="info-grid">
-
 
                 <div class="info-card">
 
@@ -1267,8 +1434,8 @@
                     </h3>
 
                     <p>
-                        Providing a company name allows the backend
-                        to generate a company-specific message.
+                        Add a company name to personalize the
+                        recruiter outreach email.
                     </p>
 
                 </div>
@@ -1277,16 +1444,16 @@
                 <div class="info-card">
 
                     <div class="info-icon">
-                        📎
+                        📄
                     </div>
 
                     <h3>
-                        Resume Attached
+                        Multiple Resumes
                     </h3>
 
                     <p>
-                        Your Resume.pdf is automatically attached
-                        by the Spring Boot mail service.
+                        Choose the resume that best matches
+                        the position you are applying for.
                     </p>
 
                 </div>
@@ -1299,12 +1466,12 @@
                     </div>
 
                     <h3>
-                        Fast Delivery
+                        Simple Mode
                     </h3>
 
                     <p>
-                        Your request goes directly to the backend
-                        mail service for delivery.
+                        Use Simple Email when you want a short,
+                        clean recruiter message without HTML styling.
                     </p>
 
                 </div>
@@ -1355,6 +1522,15 @@
         const companyName =
             document.getElementById("companyName");
 
+        const resumeType =
+            document.getElementById("resumeType");
+
+        const simpleEmail =
+            document.getElementById("simpleEmail");
+
+        const selectedResumeText =
+            document.getElementById("selectedResumeText");
+
         const sendButton =
             document.getElementById("sendButton");
 
@@ -1367,16 +1543,6 @@
 
         /* ========================================================
            LOGIN
-           
-           IMPORTANT:
-           
-           There are NO valid credentials stored here.
-           
-           The entered credentials are sent to:
-           
-               POST /auth/login
-           
-           Spring Boot decides whether they are correct.
         ======================================================== */
 
         loginForm.addEventListener(
@@ -1386,7 +1552,6 @@
                 event.preventDefault();
 
                 hideLoginError();
-
 
                 const username =
                     document
@@ -1410,8 +1575,6 @@
                 }
 
 
-                /* Disable login button */
-
                 loginButton.disabled = true;
 
                 loginButton.textContent =
@@ -1419,14 +1582,6 @@
 
 
                 try {
-
-                    /*
-                     * Send credentials to Spring Boot.
-                     *
-                     * The correct credentials are stored
-                     * on the backend through environment
-                     * variables.
-                     */
 
                     const response =
                         await fetch(
@@ -1451,16 +1606,7 @@
                         await response.text();
 
 
-                    /*
-                     * Login successful
-                     */
-
                     if (response.ok) {
-
-                        /*
-                         * Clear login credentials from
-                         * the input fields immediately.
-                         */
 
                         document
                             .getElementById("username")
@@ -1471,35 +1617,19 @@
                             .value = "";
 
 
-                        /*
-                         * Hide login screen.
-                         */
-
                         loginScreen.style.display =
                             "none";
-
-
-                        /*
-                         * Show application.
-                         */
 
                         app.style.display =
                             "block";
 
 
-                        /*
-                         * Focus recruiter email field.
-                         */
-
                         setTimeout(
                             function () {
-
                                 receiverEmail.focus();
-
                             },
                             100
                         );
-
 
                     } else if (response.status === 401) {
 
@@ -1507,11 +1637,9 @@
                             "Invalid username or password."
                         );
 
-
                         document
                             .getElementById("password")
                             .value = "";
-
 
                     } else {
 
@@ -1519,9 +1647,7 @@
                             message ||
                             "Unable to authenticate. Please try again."
                         );
-
                     }
-
 
                 } catch (error) {
 
@@ -1529,7 +1655,6 @@
                         "Login request failed:",
                         error
                     );
-
 
                     showLoginError(
                         "Unable to connect to the server. " +
@@ -1543,7 +1668,6 @@
                     loginButton.textContent =
                         "Sign In";
                 }
-
             }
         );
 
@@ -1554,57 +1678,25 @@
 
         logoutButton.addEventListener(
             "click",
+            logout
+        );
+
+
+        /* ========================================================
+           RESUME DROPDOWN
+        ======================================================== */
+
+        resumeType.addEventListener(
+            "change",
             function () {
 
-                /*
-                 * Hide application.
-                 */
+                const selectedOption =
+                    resumeType.options[
+                        resumeType.selectedIndex
+                    ];
 
-                app.style.display =
-                    "none";
-
-
-                /*
-                 * Show login screen.
-                 */
-
-                loginScreen.style.display =
-                    "flex";
-
-
-                /*
-                 * Clear all fields.
-                 */
-
-                loginForm.reset();
-
-                emailForm.reset();
-
-
-                /*
-                 * Clear notifications.
-                 */
-
-                hideNotification();
-
-                hideLoginError();
-
-
-                /*
-                 * Focus username.
-                 */
-
-                setTimeout(
-                    function () {
-
-                        document
-                            .getElementById("username")
-                            .focus();
-
-                    },
-                    100
-                );
-
+                selectedResumeText.textContent =
+                    selectedOption.textContent.trim();
             }
         );
 
@@ -1628,10 +1720,14 @@
                 const company =
                     companyName.value.trim();
 
+                const selectedResume =
+                    resumeType.value;
 
-                /*
-                 * Validate email
-                 */
+                const isSimpleEmail =
+                    simpleEmail.checked;
+
+
+                /* Validate email */
 
                 if (!email) {
 
@@ -1646,9 +1742,7 @@
                 }
 
 
-                /*
-                 * Browser email validation
-                 */
+                /* Browser email validation */
 
                 if (!receiverEmail.checkValidity()) {
 
@@ -1663,9 +1757,7 @@
                 }
 
 
-                /*
-                 * Disable send button
-                 */
+                /* Disable button */
 
                 sendButton.disabled = true;
 
@@ -1676,12 +1768,16 @@
                 try {
 
                     /*
-                     * Send request to Spring Boot.
+                     * Backend request
                      *
-                     * If you later add Spring Security
-                     * session authentication, the browser
-                     * will automatically send the session
-                     * cookie with this same-origin request.
+                     * simpleEmail:
+                     * true  -> simple/plain email
+                     * false -> normal HTML email
+                     *
+                     * resumeType:
+                     * FULL_STACK
+                     * BACKEND
+                     * BACKEND_LONG
                      */
 
                     const response =
@@ -1696,24 +1792,27 @@
                                 },
 
                                 body: JSON.stringify({
+
                                     receiverEmail: email,
-                                    companyName: company
+
+                                    companyName: company,
+
+                                    simpleEmail:
+                                        isSimpleEmail,
+
+                                    resumeType:
+                                        selectedResume
+
                                 })
                             }
                         );
 
 
-                    /*
-                     * Read backend response
-                     */
-
                     const message =
                         await response.text();
 
 
-                    /*
-                     * Successful email
-                     */
+                    /* Success */
 
                     if (response.ok) {
 
@@ -1724,27 +1823,27 @@
                         );
 
 
-                        /*
-                         * Clear form after
-                         * successful email.
-                         */
-
                         emailForm.reset();
 
 
-                    } else if (response.status === 401) {
-
                         /*
-                         * This will become useful once
-                         * /api/email/send is protected
-                         * by Spring Security/session.
+                         * Reset selected resume
+                         * display after form reset.
                          */
+
+                        resumeType.value =
+                            "BACKEND";
+
+                        selectedResumeText.textContent =
+                            "Backend Developer";
+
+
+                    } else if (response.status === 401) {
 
                         showNotification(
                             "Your login session has expired. Please login again.",
                             "error"
                         );
-
 
                         logout();
 
@@ -1775,26 +1874,19 @@
                         error
                     );
 
-
                     showNotification(
                         "Unable to connect to the server. " +
                         "Please make sure the Spring Boot application is running.",
                         "error"
                     );
 
-
                 } finally {
-
-                    /*
-                     * Re-enable button
-                     */
 
                     sendButton.disabled = false;
 
                     sendButtonText.textContent =
                         "Send Email";
                 }
-
             }
         );
 
@@ -1866,10 +1958,27 @@
 
             emailForm.reset();
 
+            resumeType.value =
+                "BACKEND";
+
+            selectedResumeText.textContent =
+                "Backend Developer";
+
             hideNotification();
 
             hideLoginError();
 
+
+            setTimeout(
+                function () {
+
+                    document
+                        .getElementById("username")
+                        .focus();
+
+                },
+                100
+            );
         }
 
     </script>

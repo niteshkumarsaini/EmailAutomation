@@ -2,7 +2,6 @@ package com.mail.sender.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,7 +50,6 @@ public class MailController {
                     .body("Receiver email is required.");
         }
 
-        // Basic email format validation
         if (!isValidEmail(receiverEmail)) {
 
             return ResponseEntity
@@ -60,13 +58,27 @@ public class MailController {
         }
 
         // --------------------------------------------------
-        // Company name is OPTIONAL
-        //
-        // If companyName is provided:
-        //     Company-specific email will be sent.
-        //
-        // If companyName is empty/null:
-        //     Generic recruiter email will be sent.
+        // Validate resume type
+        // --------------------------------------------------
+
+        String resumeType = request.getResumeType();
+
+        if (resumeType == null || resumeType.isBlank()) {
+
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Resume selection is required.");
+        }
+
+        if (!isValidResumeType(resumeType)) {
+
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Invalid resume selection.");
+        }
+
+        // --------------------------------------------------
+        // Send email
         // --------------------------------------------------
 
         try {
@@ -82,12 +94,6 @@ public class MailController {
 
         } catch (MessagingException e) {
 
-            /*
-             * Email provider / SMTP related problem.
-             *
-             * Do not expose the actual exception message
-             * to the frontend.
-             */
             return ResponseEntity
                     .status(HttpStatus.SERVICE_UNAVAILABLE)
                     .body(
@@ -97,12 +103,6 @@ public class MailController {
 
         } catch (Exception e) {
 
-            /*
-             * Unexpected server-side error.
-             *
-             * Do not expose internal exception details
-             * to the client.
-             */
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(
@@ -120,5 +120,15 @@ public class MailController {
         return email.matches(
             "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
         );
+    }
+
+    /**
+     * Validate resume selection.
+     */
+    private boolean isValidResumeType(String resumeType) {
+
+        return resumeType.equals("FULL_STACK")
+                || resumeType.equals("BACKEND")
+                || resumeType.equals("BACKEND_LONG");
     }
 }
